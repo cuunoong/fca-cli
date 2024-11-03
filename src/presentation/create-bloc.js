@@ -43,7 +43,7 @@ module.exports = (
         {
             path: path.join(folderPath, `${fileName}_state.dart`),
             content: `
-                part of ${fileName}_bloc.dart;
+                part of '${fileName}_bloc.dart';
 
                 @immutable
                 sealed class ${className}State {}
@@ -68,7 +68,7 @@ module.exports = (
         {
             path: path.join(folderPath, `${fileName}_event.dart`),
             content: `
-                part of ${fileName}_bloc.dart;
+                part of '${fileName}_bloc.dart';
 
                 @immutable
                 sealed class ${className}Event {}
