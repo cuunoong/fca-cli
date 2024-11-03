@@ -6,7 +6,7 @@
         "test": "jest"
     },
     "bin": {
-        "fca-cli": "./src/cli.js"
+        "fca-cli": "src/cli.js"
     },
     "keywords": [],
     "author": "",
