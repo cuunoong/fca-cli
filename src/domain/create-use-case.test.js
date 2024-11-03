@@ -16,7 +16,7 @@ describe("createUseCase", () => {
     });
 
     test("should create use case folder when useCaseName is empty", () => {
-        createUseCase(basePath, featureName, "", repositoryName);
+        createUseCase(featureName, "", repositoryName, basePath);
 
         const featureBasePath = path.join(
             basePath,
@@ -32,7 +32,7 @@ describe("createUseCase", () => {
 
     test("should create use case file with the correct content when useCaseName is provided", () => {
         const useCaseName = "Get Auth";
-        createUseCase(basePath, featureName, useCaseName, repositoryName);
+        createUseCase(featureName, useCaseName, repositoryName, basePath);
 
         const featureBasePath = path.join(
             basePath,
@@ -71,7 +71,7 @@ describe("createUseCase", () => {
     test("should create use case file with custom repository name", () => {
         const useCaseName = "Get Auth";
         const customRepositoryName = "Custom Auth";
-        createUseCase(basePath, featureName, useCaseName, customRepositoryName);
+        createUseCase(featureName, useCaseName, customRepositoryName, basePath);
 
         const featureBasePath = path.join(
             basePath,

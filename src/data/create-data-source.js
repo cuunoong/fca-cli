@@ -5,10 +5,10 @@ const toPascalCase = require("../utils/to-pascal-case");
 const { exec } = require("child_process");
 
 module.exports = (
-    basePath = "",
     featureName = "",
     dataSourceName = "",
-    isRemote = true
+    isRemote = true,
+    basePath = process.cwd()
 ) => {
     const featureBasePath = path.join(
         basePath,

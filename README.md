@@ -1,109 +1,181 @@
-# FCA CLI (Flutter Clean Architecture Generator)
+# Flutter Clean Architecture CLI (`fca-cli`)
 
-FCA CLI is a command-line tool that helps you quickly set up a clean architecture structure in Flutter projects. It creates organized modules and components, making your code scalable and easy to maintain.
-
-## Table of Contents
-
--   [Installation](#installation)
--   [Usage](#usage)
--   [Commands](#commands)
--   [Contributing](#contributing)
--   [License](#license)
+The **Flutter Clean Architecture CLI** (`fca-cli`) is a command-line tool that helps you quickly set up a **clean architecture** structure in Flutter projects. It provides organized modules and components, making your code more scalable, testable, and easier to maintain.
 
 ## Installation
 
-You can install FCA CLI globally using npm. Ensure that you have Node.js and npm installed on your system.
+You can install `fca-cli` globally:
 
 ```bash
 npm install -g fca-cli
 ```
 
-Alternatively, you can use `npx` to run the CLI without installing it globally:
+Or, you can run it using `npx` without installation:
 
 ```bash
-npx fca-cli
+npx fca-cli [options] [command]
 ```
 
 ## Usage
 
-To get started, run the following command:
-
 ```bash
-fca-cli [command]
+fca-cli [options] [command]
 ```
 
-Replace `[command]` with one of the available commands listed below.
+This CLI tool supports various commands to generate specific components within your Flutter project's clean architecture.
 
-## Commands
+### Options
 
-### `fca-cli add-feature <featureName>`
+-   `-V, --version`  
+    Output the version number of `fca-cli`.
 
-Adds a new feature module to `lib/features` with a clean folder structure.
+-   `-h, --help`  
+    Display help for the command.
+
+### Commands
+
+| Command                                                    | Description                                                                           |
+| ---------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `add-feature <featureName>`                                | Adds a new feature module to `lib/features` with a clean folder structure.            |
+| `add-data-source [options] <featureName> [dataSourceName]` | Creates a data source (local or remote) within the specified feature.                 |
+| `add-repository <featureName> <repositoryName>`            | Generates a repository template inside a feature for managing data sources.           |
+| `add-model <featureName> <modelName>`                      | Creates a data model within the specified feature for handling API or data responses. |
+| `add-entity <featureName> <entityName>`                    | Defines an entity within the specified feature, representing core business objects.   |
+| `add-usecase <featureName> <usecaseName> [repositoryName]` | Sets up a use case within the specified feature, focusing on specific business logic. |
+| `add-page <featureName> [pageName]`                        | Adds a page template within the specified feature for user interfaces.                |
+| `add-bloc <featureName> <blocName>`                        | Generates a Bloc within the specified feature to handle state management.             |
+| `add-widget <featureName> <widgetName>`                    | Adds a reusable widget within the specified feature for UI components.                |
+| `help [command]`                                           | Display help for a specific command.                                                  |
+
+## Example Usage
+
+Here are some examples of how you can use `fca-cli` to generate various components:
+
+1. **Add a Feature**:
+
+    ```bash
+    fca-cli add-feature Authentication
+    ```
+
+    or using `npx`:
+
+    ```bash
+    npx fca-cli add-feature Authentication
+    ```
+
+2. **Add a Repository**:
+
+    ```bash
+    fca-cli add-repository Authentication AuthRepository
+    ```
+
+    or using `npx`:
+
+    ```bash
+    npx fca-cli add-repository Authentication AuthRepository
+    ```
+
+3. **Add a Local Data Source**:
+
+    ```bash
+    fca-cli add-data-source -local Authentication LocalDataSource
+    ```
+
+    or using `npx`:
+
+    ```bash
+    npx fca-cli add-data-source -local Authentication LocalDataSource
+    ```
+
+4. **Add a Model**:
+
+    ```bash
+    fca-cli add-model Authentication UserModel
+    ```
+
+    or using `npx`:
+
+    ```bash
+    npx fca-cli add-model Authentication UserModel
+    ```
+
+5. **Add an Entity**:
+
+    ```bash
+    fca-cli add-entity Authentication UserEntity
+    ```
+
+    or using `npx`:
+
+    ```bash
+    npx fca-cli add-entity Authentication UserEntity
+    ```
+
+6. **Add a Use Case**:
+
+    ```bash
+    fca-cli add-usecase Authentication LoginUseCase AuthRepository
+    ```
+
+    or using `npx`:
+
+    ```bash
+    npx fca-cli add-usecase Authentication LoginUseCase AuthRepository
+    ```
+
+7. **Add a Page**:
+
+    ```bash
+    fca-cli add-page Authentication LoginPage
+    ```
+
+    or using `npx`:
+
+    ```bash
+    npx fca-cli add-page Authentication LoginPage
+    ```
+
+8. **Add a Bloc**:
+
+    ```bash
+    fca-cli add-bloc Authentication LoginBloc
+    ```
+
+    or using `npx`:
+
+    ```bash
+    npx fca-cli add-bloc Authentication LoginBloc
+    ```
+
+9. **Add a Widget**:
+    ```bash
+    fca-cli add-widget Authentication LoginButton
+    ```
+    or using `npx`:
+    ```bash
+    npx fca-cli add-widget Authentication LoginButton
+    ```
+
+## Help
+
+For help on a specific command, use:
 
 ```bash
-fca-cli add-feature myNewFeature
+fca-cli help <command>
 ```
 
-### `fca-cli add-data-source <featureName> [dataSourceName]`
-
-Creates a data source within the specified feature.
+Example:
 
 ```bash
-fca-cli add-data-source myNewFeature myDataSource --local
+fca-cli help add-model
 ```
 
--   Use the `--local` option to create a local data source.
-
-### `fca-cli add-repository <featureName> <repositoryName>`
-
-Generates a repository template inside a feature for managing data sources.
+or using `npx`:
 
 ```bash
-fca-cli add-repository myNewFeature myRepository
+npx fca-cli help add-model
 ```
-
-### `fca-cli add-model <featureName> <modelName>`
-
-Creates a data model within the specified feature for handling API or data responses.
-
-```bash
-fca-cli add-model myNewFeature myModel
-```
-
-### `fca-cli add-entity <featureName> <entityName>`
-
-Defines an entity within the specified feature, representing core business objects.
-
-```bash
-fca-cli add-entity myNewFeature myEntity
-```
-
-### `fca-cli add-usecase <featureName> <usecaseName> [repositoryName]`
-
-Sets up a use case within the specified feature, focusing on specific business logic.
-
-```bash
-fca-cli add-usecase myNewFeature myUseCase myRepository
-```
-
-### Additional Commands
-
-(Add any additional commands and descriptions as you implement them)
-
-## Contributing
-
-Contributions are welcome! If you have suggestions or improvements, please create an issue or submit a pull request.
-
-1. Fork the repository.
-2. Create your feature branch: `git checkout -b feature/MyFeature`
-3. Commit your changes: `git commit -m 'Add some feature'`
-4. Push to the branch: `git push origin feature/MyFeature`
-5. Open a pull request.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-For more information on Flutter and Clean Architecture, visit the official documentation at [Flutter Docs](https://flutter.dev/docs) and [Clean Architecture](https://www.baeldung.com/clean-architecture).
+This project is licensed under the MIT License.

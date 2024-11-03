@@ -4,7 +4,11 @@ const toSnakeCase = require("../utils/to-snake-case");
 const toPascalCase = require("../utils/to-pascal-case");
 const { exec } = require("child_process");
 
-module.exports = (basePath = "", featureName = "", repositoryName = "") => {
+module.exports = (
+    featureName = "",
+    repositoryName = "",
+    basePath = process.cwd()
+) => {
     const featureBasePath = path.join(
         basePath,
         "lib",

@@ -7,9 +7,12 @@ const createRepositoryImpl = require("./data/create-repository-impl");
 const createRepository = require("./domain/create-repository");
 const createEntity = require("./domain/create-entity");
 const createUseCase = require("./domain/create-use-case");
+const createPage = require("./presentation/create-page");
+const createWidget = require("./presentation/create-widget");
+const createBloc = require("./presentation/create-bloc");
 
 program
-    .version("0.0.1")
+    .version("1.0.1")
     .description(
         formatContent(
             `The Flutter Clean Architecture Generator CLI tool helps you quickly set up a clean architecture structure in Flutter projects. 
@@ -24,13 +27,15 @@ program
         "Adds a new feature module to lib/features with a clean folder structure"
     )
     .action((featureName) => {
-        const basePath = process.cwd();
-        createDataSource(basePath, featureName);
-        createModel(basePath, featureName);
-        createRepositoryImpl(basePath, featureName);
-        createRepository(basePath, featureName);
-        createEntity(basePath, featureName);
-        createUseCase(basePath, featureName);
+        createDataSource(featureName);
+        createModel(featureName);
+        createRepositoryImpl(featureName);
+        createRepository(featureName);
+        createEntity(featureName);
+        createUseCase(featureName);
+        createPage(featureName);
+        createWidget(featureName);
+        createBloc(featureName);
     });
 
 program
@@ -38,9 +43,7 @@ program
     .description("Creates a data source within the specified feature.")
     .option("-l, --local", "Create a local data source")
     .action((featureName, dataSourceName, options) => {
-        const basePath = process.cwd();
         createDataSource(
-            basePath,
             featureName,
             dataSourceName,
             options.local ? false : true
@@ -53,9 +56,8 @@ program
         "Generates a repository template inside a feature for managing data sources"
     )
     .action((featureName, repositoryName) => {
-        const basePath = process.cwd();
-        createRepository(basePath, featureName, repositoryName);
-        createRepositoryImpl(basePath, featureName, repositoryName);
+        createRepository(featureName, repositoryName);
+        createRepositoryImpl(featureName, repositoryName);
     });
 
 program
@@ -64,8 +66,7 @@ program
         "Creates a data model within the specified feature for handling API or data responses"
     )
     .action((featureName, modelName) => {
-        const basePath = process.cwd();
-        createModel(basePath, featureName, modelName);
+        createModel(featureName, modelName);
     });
 
 program
@@ -74,8 +75,7 @@ program
         "Defines an entity within the specified feature, representing core business objects."
     )
     .action((featureName, entityName) => {
-        const basePath = process.cwd();
-        createEntity(basePath, featureName, entityName);
+        createEntity(featureName, entityName);
     });
 
 program
@@ -84,8 +84,34 @@ program
         "Sets up a use case within the specified feature, focusing on specific business logic."
     )
     .action((featureName, usecaseName, repositoryName) => {
-        const basePath = process.cwd();
-        createUseCase(basePath, featureName, usecaseName, repositoryName);
+        createUseCase(featureName, usecaseName, repositoryName);
+    });
+
+program
+    .command("add-page <featureName> [pageName]")
+    .description(
+        "Adds a page template within the specified feature for user interfaces."
+    )
+    .action((featureName, pageName) => {
+        createPage(featureName, pageName);
+    });
+
+program
+    .command("add-bloc <featureName> <blocName>")
+    .description(
+        "Generates a Bloc within the specified feature to handle state management."
+    )
+    .action((featureName, blocName) => {
+        createBloc(featureName, blocName);
+    });
+
+program
+    .command("add-widget <featureName> <widgetName>")
+    .description(
+        "Adds a reusable widget within the specified feature for UI components."
+    )
+    .action((featureName, widgetName) => {
+        createWidget(featureName, widgetName);
     });
 
 program.parse(process.argv);

@@ -16,7 +16,7 @@ describe("createRepository", () => {
     });
 
     test("should create repository file with default repository name", () => {
-        createRepository(basePath, featureName);
+        createRepository(featureName, "", basePath);
 
         const featureBasePath = path.join(
             basePath,
@@ -41,7 +41,7 @@ describe("createRepository", () => {
     });
 
     test("should create repository file with custom repository name", () => {
-        createRepository(basePath, featureName, customRepositoryName);
+        createRepository(featureName, customRepositoryName, basePath);
 
         const featureBasePath = path.join(
             basePath,

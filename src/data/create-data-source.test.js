@@ -16,7 +16,7 @@ describe("createDataSource", () => {
     });
 
     test("should create data source files correctly for a remote data source", () => {
-        createDataSource(basePath, featureName);
+        createDataSource(featureName, "", true, basePath);
 
         const featureBasePath = path.join(
             basePath,
@@ -63,7 +63,7 @@ describe("createDataSource", () => {
     });
 
     test("should create local data source files correctly", () => {
-        createDataSource(basePath, featureName, "", false); // Local data source
+        createDataSource(featureName, "", false, basePath); // Local data source
 
         const featureBasePath = path.join(
             basePath,
@@ -111,7 +111,7 @@ describe("createDataSource", () => {
     });
 
     test("should create data source files with a custom data source name", () => {
-        createDataSource(basePath, featureName, customDataSourceName, true);
+        createDataSource(featureName, customDataSourceName, true, basePath);
 
         const featureBasePath = path.join(
             basePath,

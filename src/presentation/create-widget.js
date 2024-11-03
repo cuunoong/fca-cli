@@ -6,7 +6,7 @@ const { exec } = require("child_process");
 
 module.exports = (
     featureName = "",
-    repositoryName = "",
+    widgetName = "",
     basePath = process.cwd()
 ) => {
     const featureBasePath = path.join(
@@ -16,21 +16,29 @@ module.exports = (
         toSnakeCase(featureName)
     );
 
-    const folderPath = path.join(featureBasePath, "data", "repositories");
+    const folderPath = path.join(featureBasePath, "presentation", "widgets");
     if (!fs.existsSync(folderPath))
         fs.mkdirSync(folderPath, { recursive: true });
 
-    repositoryName = repositoryName.length ? repositoryName : featureName;
-    const fileName = toSnakeCase(repositoryName);
-    const className = toPascalCase(repositoryName);
+    if (widgetName === "") return;
+
+    const fileName = toSnakeCase(widgetName);
+    const className = toPascalCase(widgetName);
 
     const files = [
         {
-            path: path.join(folderPath, `${fileName}_repository_impl.dart`),
+            path: path.join(folderPath, `${fileName}_widget.dart`),
             content: `
-                import '../../domain/repositories/${fileName}_repository.dart';
+            import 'package:flutter/material.dart';
 
-                class ${className}RepositoryImpl implements ${className}Repository {}`,
+            class ${className}Widget extends StatelessWidget {
+                const ${className}Widget({Key? key}) : super(key: key);
+
+                @override
+                Widget build(BuildContext context) {
+                    return Text("${className} Widget");
+                }
+            }`,
         },
     ];
 

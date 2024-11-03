@@ -16,7 +16,7 @@ describe("createModel", () => {
     });
 
     test("should create model file with default model name", () => {
-        createModel(basePath, featureName);
+        createModel(featureName, "", basePath);
 
         const featureBasePath = path.join(
             basePath,
@@ -46,7 +46,7 @@ describe("createModel", () => {
     });
 
     test("should create model file with custom model name", () => {
-        createModel(basePath, featureName, customModelName);
+        createModel(featureName, customModelName, basePath);
 
         const featureBasePath = path.join(
             basePath,

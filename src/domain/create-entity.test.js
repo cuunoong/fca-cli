@@ -18,7 +18,7 @@ describe("createEntity", () => {
     });
 
     test("should create entity file with default entity name", () => {
-        createEntity(basePath, featureName);
+        createEntity(featureName, "", basePath);
 
         const featureBasePath = path.join(
             basePath,
@@ -43,7 +43,7 @@ describe("createEntity", () => {
     });
 
     test("should create entity file with custom entity name", () => {
-        createEntity(basePath, featureName, customEntityName);
+        createEntity(featureName, customEntityName, basePath);
 
         const featureBasePath = path.join(
             basePath,

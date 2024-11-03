@@ -16,7 +16,7 @@ describe("createRepository", () => {
     });
 
     test("should create repository implementation file with default repository name", () => {
-        createRepositoryImpl(basePath, featureName);
+        createRepositoryImpl(featureName, "", basePath);
 
         const featureBasePath = path.join(
             basePath,
@@ -48,7 +48,7 @@ describe("createRepository", () => {
     });
 
     test("should create repository implementation file with custom repository name", () => {
-        createRepositoryImpl(basePath, featureName, customRepositoryName);
+        createRepositoryImpl(featureName, customRepositoryName, basePath);
 
         const featureBasePath = path.join(
             basePath,
