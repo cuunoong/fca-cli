@@ -92,7 +92,7 @@ describe("createBloc", () => {
         // Verify the content of the state file
         const stateContent = vol.readFileSync(stateFilePath, "utf-8");
         expect(stateContent).toContain(
-            `part of ${toSnakeCase(blocName)}_bloc.dart`
+            `part of '${toSnakeCase(blocName)}_bloc.dart'`
         );
         expect(stateContent).toContain(
             `sealed class ${toPascalCase(blocName)}State`
@@ -110,7 +110,7 @@ describe("createBloc", () => {
         // Verify the content of the event file
         const eventContent = vol.readFileSync(eventFilePath, "utf-8");
         expect(eventContent).toContain(
-            `part of ${toSnakeCase(blocName)}_bloc.dart`
+            `part of '${toSnakeCase(blocName)}_bloc.dart'`
         );
         expect(eventContent).toContain(
             `sealed class ${toPascalCase(blocName)}Event`
