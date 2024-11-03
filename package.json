@@ -18,5 +18,8 @@
     "devDependencies": {
         "jest": "^29.7.0",
         "memfs": "^4.14.0"
+    },
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com"
     }
 }
