@@ -24,7 +24,7 @@ jobs:
       - name: Set up Dart
         uses: dart-lang/setup-dart@v1
         with:
-            channel: stable
+            sdk: stable
 
       - name: Install dependencies
         run: npm install  # Change to your package manager command if needed
