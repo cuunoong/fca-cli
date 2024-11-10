@@ -19,15 +19,16 @@ program
         It creates organized modules and components, making your code scalable and easy to maintain.`
         )
     )
-    .name("fca-cli");
+    .name("");
 
 program
     .command("add-feature <featureName>")
     .description(
         "Adds a new feature module to lib/features with a clean folder structure"
     )
-    .action((featureName) => {
-        createDataSource(featureName);
+    .option("-l, --local", "Create a local data source")
+    .action((featureName, options) => {
+        createDataSource(featureName, null, options.local ? false : true);
         createModel(featureName);
         createRepositoryImpl(featureName);
         createRepository(featureName);

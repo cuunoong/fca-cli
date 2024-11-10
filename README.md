@@ -7,13 +7,13 @@ The **Flutter Clean Architecture CLI** (`fca-cli`) is a command-line tool that h
 You can install `fca-cli` globally:
 
 ```bash
-npm install -g fca-cli
+npm install -g fca-cli@latest
 ```
 
 Or, you can run it using `npx` without installation:
 
 ```bash
-npx fca-cli [options] [command]
+npx fca-cli@latest [options] [command]
 ```
 
 ## Usage
@@ -36,7 +36,7 @@ This CLI tool supports various commands to generate specific components within y
 
 | Command                                                    | Description                                                                           |
 | ---------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| `add-feature <featureName>`                                | Adds a new feature module to `lib/features` with a clean folder structure.            |
+| `add-feature <featureName> [options]`                      | Adds a new feature module to `lib/features` with a clean folder structure.            |
 | `add-data-source [options] <featureName> [dataSourceName]` | Creates a data source (local or remote) within the specified feature.                 |
 | `add-repository <featureName> <repositoryName>`            | Generates a repository template inside a feature for managing data sources.           |
 | `add-model <featureName> <modelName>`                      | Creates a data model within the specified feature for handling API or data responses. |
@@ -60,7 +60,7 @@ Here are some examples of how you can use `fca-cli` to generate various componen
     or using `npx`:
 
     ```bash
-    npx fca-cli add-feature Authentication
+    npx fca-cli@latest add-feature Authentication
     ```
 
 2. **Add a Repository**:
@@ -72,7 +72,7 @@ Here are some examples of how you can use `fca-cli` to generate various componen
     or using `npx`:
 
     ```bash
-    npx fca-cli add-repository Authentication AuthRepository
+    npx fca-cli@latest add-repository Authentication AuthRepository
     ```
 
 3. **Add a Local Data Source**:
@@ -84,7 +84,7 @@ Here are some examples of how you can use `fca-cli` to generate various componen
     or using `npx`:
 
     ```bash
-    npx fca-cli add-data-source -local Authentication LocalDataSource
+    npx fca-cli@latest add-data-source -local Authentication LocalDataSource
     ```
 
 4. **Add a Model**:
@@ -96,7 +96,7 @@ Here are some examples of how you can use `fca-cli` to generate various componen
     or using `npx`:
 
     ```bash
-    npx fca-cli add-model Authentication UserModel
+    npx fca-cli@latest add-model Authentication UserModel
     ```
 
 5. **Add an Entity**:
@@ -108,7 +108,7 @@ Here are some examples of how you can use `fca-cli` to generate various componen
     or using `npx`:
 
     ```bash
-    npx fca-cli add-entity Authentication UserEntity
+    npx fca-cli@latest add-entity Authentication UserEntity
     ```
 
 6. **Add a Use Case**:
@@ -120,7 +120,7 @@ Here are some examples of how you can use `fca-cli` to generate various componen
     or using `npx`:
 
     ```bash
-    npx fca-cli add-usecase Authentication LoginUseCase AuthRepository
+    npx fca-cli@latest add-usecase Authentication LoginUseCase AuthRepository
     ```
 
 7. **Add a Page**:
@@ -132,7 +132,7 @@ Here are some examples of how you can use `fca-cli` to generate various componen
     or using `npx`:
 
     ```bash
-    npx fca-cli add-page Authentication LoginPage
+    npx fca-cli@latest add-page Authentication LoginPage
     ```
 
 8. **Add a Bloc**:
@@ -144,7 +144,7 @@ Here are some examples of how you can use `fca-cli` to generate various componen
     or using `npx`:
 
     ```bash
-    npx fca-cli add-bloc Authentication LoginBloc
+    npx fca-cli@latest add-bloc Authentication LoginBloc
     ```
 
 9. **Add a Widget**:
@@ -153,7 +153,7 @@ Here are some examples of how you can use `fca-cli` to generate various componen
     ```
     or using `npx`:
     ```bash
-    npx fca-cli add-widget Authentication LoginButton
+    npx fca-cli@latest add-widget Authentication LoginButton
     ```
 
 ## Help
@@ -173,7 +173,7 @@ fca-cli help add-model
 or using `npx`:
 
 ```bash
-npx fca-cli help add-model
+npx fca-cli@latest help add-model
 ```
 
 ## License
