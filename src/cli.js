@@ -28,7 +28,7 @@ program
     )
     .option("-l, --local", "Create a local data source")
     .action((featureName, options) => {
-        createDataSource(featureName, null, options.local ? false : true);
+        createDataSource(featureName, "", options.local ? false : true);
         createModel(featureName);
         createRepositoryImpl(featureName);
         createRepository(featureName);
