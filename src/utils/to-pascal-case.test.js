@@ -14,6 +14,10 @@ describe("toPascalCase", () => {
     });
 
     it("should handle mixed case input", () => {
-        expect(toPascalCase("tESt feAture")).toBe("TestFeature");
+        expect(toPascalCase("tESt feAture")).toBe("TEStFeAture");
+    });
+
+    it("should handle mixed pascal input", () => {
+        expect(toPascalCase("TestFeature")).toBe("TestFeature");
     });
 });

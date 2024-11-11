@@ -1,8 +1,6 @@
 module.exports = (str) => {
     return str
-        .split(" ")
-        .map(
-            (word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
-        )
-        .join("");
+        .trim() // Trim leading and trailing whitespace
+        .replace(/[_\s]+(.)?/g, (match, chr) => (chr ? chr.toUpperCase() : "")) // Remove underscores/spaces and capitalize the following letter
+        .replace(/^./, (chr) => chr.toUpperCase()); // Capitalize the first letter of the entire string
 };

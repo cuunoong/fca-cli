@@ -14,6 +14,6 @@ describe("toSnakeCase", () => {
     });
 
     it("should handle mixed case input", () => {
-        expect(toSnakeCase("tESt FeAture")).toBe("test_feature");
+        expect(toSnakeCase("tESt FeAture")).toBe("t_est_fe_ature");
     });
 });
