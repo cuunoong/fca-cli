@@ -41,7 +41,7 @@ describe("createModel", () => {
         expect(modelContent).toContain(
             `class ${toPascalCase(
                 featureName + " model"
-            )} implements ${toPascalCase(featureName)} {}`
+            )} extends ${toPascalCase(featureName)} {}`
         );
     });
 
@@ -73,7 +73,7 @@ describe("createModel", () => {
         expect(modelContent).toContain(
             `class ${toPascalCase(
                 customModelName + " model"
-            )} implements ${toPascalCase(customModelName)} {}`
+            )} extends ${toPascalCase(customModelName)} {}`
         );
     });
 });

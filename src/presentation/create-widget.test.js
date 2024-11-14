@@ -71,13 +71,13 @@ describe("createWidget", () => {
             class ${toPascalCase(
                 customWidgetName
             )}Widget extends StatelessWidget {
-                const ${toPascalCase(
-                    customWidgetName
-                )}Widget({Key? key}) : super(key: key);
+                const ${toPascalCase(customWidgetName)}Widget({super.key});
 
                 @override
                 Widget build(BuildContext context) {
-                    return Text("${toPascalCase(customWidgetName)} Widget");
+                    return const Text("${toPascalCase(
+                        customWidgetName
+                    )} Widget");
                 }
             }`.trim();
 

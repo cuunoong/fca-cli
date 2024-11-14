@@ -33,7 +33,7 @@ module.exports = (
             content: `
                 import '../../domain/entities/${entityName}.dart';
 
-                class ${className} implements ${entityClass} {}`,
+                class ${className} extends ${entityClass} {}`,
         },
     ];
 

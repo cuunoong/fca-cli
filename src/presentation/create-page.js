@@ -31,7 +31,7 @@ module.exports = (
             import 'package:flutter/material.dart';
 
             class ${className}Page extends StatelessWidget {
-                const ${className}Page({Key? key}) : super(key: key);
+                const ${className}Page({super.key});
 
                 static const String routeName = '/${fileName}';
 
@@ -39,9 +39,9 @@ module.exports = (
                 Widget build(BuildContext context) {
                     return Scaffold(
                         appBar: AppBar(
-                            title: Text('${className}'),
+                            title: const Text('${className}'),
                         ),
-                        body: Center(
+                        body: const Center(
                             child: Text('${className} Page'),
                         ),
                     );

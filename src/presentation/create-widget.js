@@ -32,11 +32,11 @@ module.exports = (
             import 'package:flutter/material.dart';
 
             class ${className}Widget extends StatelessWidget {
-                const ${className}Widget({Key? key}) : super(key: key);
+                const ${className}Widget({super.key});
 
                 @override
                 Widget build(BuildContext context) {
-                    return Text("${className} Widget");
+                    return const Text("${className} Widget");
                 }
             }`,
         },
