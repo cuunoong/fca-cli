@@ -32,6 +32,11 @@ This CLI tool supports various commands to generate specific components within y
 -   `-h, --help`  
     Display help for the command.
 
+## Deprecation Notice
+
+    ⚠️ The `fca-cli add-usecase` command is deprecated.
+    Please use the new command `fca-cli add-use-case` instead.
+
 ### Commands
 
 | Command                                                    | Description                                                                           |
@@ -66,85 +71,84 @@ Here are some examples of how you can use `fca-cli` to generate various componen
 2. **Add a Repository**:
 
     ```bash
-    fca-cli add-repository Authentication AuthRepository
+    fca-cli add-repository Authentication Auth
     ```
 
     or using `npx`:
 
     ```bash
-    npx fca-cli@latest add-repository Authentication AuthRepository
+    npx fca-cli@latest add-repository Authentication Auth
     ```
 
 3. **Add a Local Data Source**:
 
     ```bash
-    fca-cli add-data-source -local Authentication LocalDataSource
+    fca-cli add-data-source -local Authentication Auth
     ```
 
     or using `npx`:
 
     ```bash
-    npx fca-cli@latest add-data-source -local Authentication LocalDataSource
+    npx fca-cli@latest add-data-source -local Authentication Auth
     ```
 
 4. **Add a Model**:
 
     ```bash
-    fca-cli add-model Authentication UserModel
+    fca-cli add-model Authentication User
     ```
 
     or using `npx`:
 
     ```bash
-    npx fca-cli@latest add-model Authentication UserModel
+    npx fca-cli@latest add-model Authentication User
     ```
 
 5. **Add an Entity**:
 
     ```bash
-    fca-cli add-entity Authentication UserEntity
+    fca-cli add-entity Authentication User
     ```
 
     or using `npx`:
 
     ```bash
-    npx fca-cli@latest add-entity Authentication UserEntity
+    npx fca-cli@latest add-entity Authentication User
     ```
 
 6. **Add a Use Case**:
 
     ```bash
-    fca-cli add-usecase Authentication LoginUseCase AuthRepository
+    fca-cli add-use-case Authentication Login
     ```
 
     or using `npx`:
 
     ```bash
-    npx fca-cli@latest add-usecase Authentication LoginUseCase AuthRepository
+    npx fca-cli@latest add-use-case Authentication Login
     ```
 
 7. **Add a Page**:
 
-    ```bash
-    fca-cli add-page Authentication LoginPage
-    ```
+    ````bash
+    fca-cli add-page Authentication Login
 
     or using `npx`:
 
     ```bash
-    npx fca-cli@latest add-page Authentication LoginPage
-    ```
+    npx fca-cli@latest add-page Authentication Login
+    ````
 
 8. **Add a Bloc**:
 
     ```bash
-    fca-cli add-bloc Authentication LoginBloc
+    fca-cli add-bloc Authentication Login
     ```
 
     or using `npx`:
 
     ```bash
-    npx fca-cli@latest add-bloc Authentication LoginBloc
+    npx fca-cli@latest add-bloc Authentication Login
     ```
 
 9. **Add a Widget**:
