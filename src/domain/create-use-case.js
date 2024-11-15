@@ -44,7 +44,7 @@ module.exports = (
             class ${className} {
                 final ${repositoryClassName} _repository;
 
-                ${className}({reqired ${repositoryClassName} repository}): _repository = repository;
+                ${className}({required ${repositoryClassName} repository}): _repository = repository;
 
                 Future<void> call() async {}
             }`,

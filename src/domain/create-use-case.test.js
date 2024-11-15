@@ -63,7 +63,11 @@ describe("createUseCase", () => {
             `final ${toPascalCase(repositoryName)}Repository _repository;`
         );
         expect(useCaseContent).toContain(
-            `${toPascalCase(useCaseName + " use case")}(this._repository);`
+            `${toPascalCase(
+                useCaseName + " use case"
+            )}({required ${toPascalCase(
+                repositoryName
+            )}Repository repository}): _repository = repository;`
         );
         expect(useCaseContent).toContain("Future<void> call() async {}");
     });
@@ -102,7 +106,11 @@ describe("createUseCase", () => {
             `final ${toPascalCase(customRepositoryName)}Repository _repository;`
         );
         expect(useCaseContent).toContain(
-            `${toPascalCase(useCaseName + " use case")}(this._repository);`
+            `${toPascalCase(
+                useCaseName + " use case"
+            )}({required ${toPascalCase(
+                customRepositoryName
+            )}Repository repository}): _repository = repository;`
         );
         expect(useCaseContent).toContain("Future<void> call() async {}");
     });
