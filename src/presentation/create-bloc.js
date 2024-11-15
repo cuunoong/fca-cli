@@ -33,8 +33,8 @@ module.exports = (
         {
             path: path.join(folderPath, `${fileName}_bloc.dart`),
             content: `
-                import 'package:bloc/bloc.dart';
                 import 'package:flutter/material.dart';
+                import 'package:flutter_bloc/flutter_bloc.dart';
                 
                 part '${fileName}_state.dart';
                 part '${fileName}_event.dart';
