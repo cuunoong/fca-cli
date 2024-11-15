@@ -80,12 +80,12 @@ program
     });
 
 program
-    .command("add-usecase <featureName> <usecaseName> [repositoryName]")
+    .command("add-use-case <featureName> <useCaseName> [repositoryName]")
     .description(
         "Sets up a use case within the specified feature, focusing on specific business logic."
     )
-    .action((featureName, usecaseName, repositoryName) => {
-        createUseCase(featureName, usecaseName, repositoryName);
+    .action((featureName, useCaseName, repositoryName) => {
+        createUseCase(featureName, useCaseName, repositoryName);
     });
 
 program

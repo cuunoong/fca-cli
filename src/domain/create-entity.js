@@ -24,6 +24,10 @@ module.exports = (
     const fileName = toSnakeCase(entityName);
     const className = toPascalCase(entityName);
 
+    console.log(
+        `Creating ${className} Entity inside ${toPascalCase(featureName)}`
+    );
+
     const files = [
         {
             path: path.join(folderPath, `${fileName}.dart`),

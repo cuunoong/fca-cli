@@ -25,6 +25,10 @@ module.exports = (
     const fileName = toSnakeCase(blocName);
     const className = toPascalCase(blocName);
 
+    console.log(
+        `Creating ${className}Bloc inside ${toPascalCase(featureName)}`
+    );
+
     const files = [
         {
             path: path.join(folderPath, `${fileName}_bloc.dart`),
