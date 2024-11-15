@@ -24,6 +24,10 @@ module.exports = (
     const fileName = toSnakeCase(repositoryName);
     const className = toPascalCase(repositoryName);
 
+    console.log(
+        `Creating ${className}Repository inside ${toPascalCase(featureName)}`
+    );
+
     const files = [
         {
             path: path.join(folderPath, `${fileName}_repository.dart`),

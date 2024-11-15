@@ -33,6 +33,8 @@ module.exports = (
     const repositoryFileName = toSnakeCase(repositoryName);
     const repositoryClassName = toPascalCase(repositoryName);
 
+    console.log(`Creating ${className} inside ${repositoryClassName}`);
+
     const files = [
         {
             path: path.join(folderPath, `${fileName}.dart`),

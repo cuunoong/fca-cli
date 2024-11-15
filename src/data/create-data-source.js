@@ -25,6 +25,10 @@ module.exports = (
 
     const fileName = `${toSnakeCase(dataSourceName)}_${toSnakeCase(naming)}`;
     const className = `${toPascalCase(dataSourceName + " " + naming)}`;
+
+    console.log(
+        `Creating ${className}DataSource inside ${toPascalCase(featureName)}`
+    );
     const files = [
         {
             path: path.join(folderPath, `${fileName}_data_source.dart`),

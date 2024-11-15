@@ -25,6 +25,10 @@ module.exports = (
     const fileName = toSnakeCase(widgetName);
     const className = toPascalCase(widgetName);
 
+    console.log(
+        `Creating ${className}Widget inside ${toPascalCase(featureName)}`
+    );
+
     const files = [
         {
             path: path.join(folderPath, `${fileName}_widget.dart`),

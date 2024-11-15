@@ -24,6 +24,10 @@ module.exports = (
     const fileName = toSnakeCase(pageName);
     const className = toPascalCase(pageName);
 
+    console.log(
+        `Creating ${className}Page inside ${toPascalCase(featureName)}`
+    );
+
     const files = [
         {
             path: path.join(folderPath, `${fileName}_page.dart`),
