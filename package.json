@@ -1,7 +1,7 @@
 {
     "name": "fca-cli",
-    "version": "1.0.9",
-    "main": "index.js",
+    "version": "1.0.10",
+    "main": "src/cli.js",
     "scripts": {
         "test": "jest"
     },
@@ -14,7 +14,7 @@
     "description": "",
     "dependencies": {
         "commander": "^12.1.0",
-        "module-alias": "^2.2.3"
+        "fca-cli": "./fca-cli-v1.0.9.tgz"
     },
     "devDependencies": {
         "jest": "^29.7.0",
@@ -22,9 +22,5 @@
     },
     "publishConfig": {
         "registry": "https://registry.npmjs.org"
-    },
-    "_moduleAliases": {
-        "@": "src"
-    },
-    "type": "commonjs"
+    }
 }

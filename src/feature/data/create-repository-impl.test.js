@@ -1,8 +1,8 @@
 const { vol } = require("memfs");
 const path = require("path");
-const createRepositoryImpl = require("@/feature/data/create-repository-impl");
-const toSnakeCase = require("@/utils/to-snake-case");
-const toPascalCase = require("@/utils/to-pascal-case");
+const createRepositoryImpl = require("../../feature/data/create-repository-impl");
+const toSnakeCase = require("../../utils/to-snake-case");
+const toPascalCase = require("../../utils/to-pascal-case");
 
 jest.mock("fs", () => require("memfs").fs);
 

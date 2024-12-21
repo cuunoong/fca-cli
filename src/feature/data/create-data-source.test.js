@@ -1,7 +1,7 @@
 const path = require("path");
 const { vol } = require("memfs");
-const toSnakeCase = require("@/utils/to-snake-case");
-const toPascalCase = require("@/utils/to-pascal-case");
+const toSnakeCase = require("../../utils/to-snake-case");
+const toPascalCase = require("../../utils/to-pascal-case");
 const createDataSource = require("./create-data-source");
 
 jest.mock("fs", () => require("memfs").fs);
