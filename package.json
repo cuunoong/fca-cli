@@ -13,7 +13,8 @@
     "license": "ISC",
     "description": "",
     "dependencies": {
-        "commander": "^12.1.0"
+        "commander": "^12.1.0",
+        "module-alias": "^2.2.3"
     },
     "devDependencies": {
         "jest": "^29.7.0",
@@ -21,5 +22,9 @@
     },
     "publishConfig": {
         "registry": "https://registry.npmjs.org"
-    }
+    },
+    "_moduleAliases": {
+        "@": "src"
+    },
+    "type": "commonjs"
 }

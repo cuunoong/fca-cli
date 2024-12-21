@@ -1,12 +1,12 @@
 const fs = require("fs");
 const path = require("path");
-const toSnakeCase = require("../utils/to-snake-case");
-const toPascalCase = require("../utils/to-pascal-case");
+const toSnakeCase = require("@/utils/to-snake-case");
+const toPascalCase = require("@/utils/to-pascal-case");
 const { exec } = require("child_process");
 
 module.exports = (
     featureName = "",
-    repositoryName = "",
+    entityName = "",
     basePath = process.cwd()
 ) => {
     const featureBasePath = path.join(
@@ -16,27 +16,22 @@ module.exports = (
         toSnakeCase(featureName)
     );
 
-    const folderPath = path.join(featureBasePath, "data", "repositories");
+    const folderPath = path.join(featureBasePath, "domain", "entities");
     if (!fs.existsSync(folderPath))
         fs.mkdirSync(folderPath, { recursive: true });
 
-    repositoryName = repositoryName.length ? repositoryName : featureName;
-    const fileName = toSnakeCase(repositoryName);
-    const className = toPascalCase(repositoryName);
+    entityName = entityName.length ? entityName : featureName;
+    const fileName = toSnakeCase(entityName);
+    const className = toPascalCase(entityName);
 
     console.log(
-        `Creating ${className}RepositoryImpl inside ${toPascalCase(
-            featureName
-        )}`
+        `Creating ${className} Entity inside ${toPascalCase(featureName)}`
     );
 
     const files = [
         {
-            path: path.join(folderPath, `${fileName}_repository_impl.dart`),
-            content: `
-                import '../../domain/repositories/${fileName}_repository.dart';
-
-                class ${className}RepositoryImpl implements ${className}Repository {}`,
+            path: path.join(folderPath, `${fileName}.dart`),
+            content: `class ${className} {}`,
         },
     ];
 

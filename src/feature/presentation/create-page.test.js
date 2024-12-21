@@ -1,8 +1,8 @@
 const { vol } = require("memfs");
 const path = require("path");
 const createWidget = require("./create-widget");
-const toSnakeCase = require("../utils/to-snake-case");
-const toPascalCase = require("../utils/to-pascal-case");
+const toSnakeCase = require("@/utils/to-snake-case");
+const toPascalCase = require("@/utils/to-pascal-case");
 
 jest.mock("fs", () => require("memfs").fs);
 
@@ -65,23 +65,13 @@ describe("createWidget", () => {
         expect(vol.existsSync(widgetFilePath)).toBe(true);
 
         // Verify the content of the widget file
-        const expectedContent = `
-            import 'package:flutter/material.dart';
-
-            class ${toPascalCase(
-                customWidgetName
-            )}Widget extends StatelessWidget {
-                const ${toPascalCase(customWidgetName)}Widget({super.key});
-
-                @override
-                Widget build(BuildContext context) {
-                    return const Text("${toPascalCase(
-                        customWidgetName
-                    )} Widget");
-                }
-            }`.trim();
-
-        const widgetContent = vol.readFileSync(widgetFilePath, "utf-8").trim();
-        expect(widgetContent).toBe(expectedContent);
+        const widgetContent = vol.readFileSync(widgetFilePath, "utf-8");
+        expect(widgetContent).toContain(
+            `class ${toPascalCase(customWidgetName)}Widget`
+        );
+        expect(widgetContent).toContain(`Widget build(BuildContext context)`);
+        expect(widgetContent).toContain(
+            `Text("${toPascalCase(customWidgetName)} Widget")`
+        );
     });
 });

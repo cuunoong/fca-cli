@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
-const toSnakeCase = require("../utils/to-snake-case");
-const toPascalCase = require("../utils/to-pascal-case");
+const toSnakeCase = require("@/utils/to-snake-case");
+const toPascalCase = require("@/utils/to-pascal-case");
 const { exec } = require("child_process");
 
 module.exports = (
@@ -16,7 +16,7 @@ module.exports = (
         toSnakeCase(featureName)
     );
 
-    const folderPath = path.join(featureBasePath, "domain", "repositories");
+    const folderPath = path.join(featureBasePath, "data", "repositories");
     if (!fs.existsSync(folderPath))
         fs.mkdirSync(folderPath, { recursive: true });
 
@@ -25,13 +25,28 @@ module.exports = (
     const className = toPascalCase(repositoryName);
 
     console.log(
-        `Creating ${className}Repository inside ${toPascalCase(featureName)}`
+        `Creating ${className}RepositoryImpl inside ${toPascalCase(
+            featureName
+        )}`
     );
 
     const files = [
         {
-            path: path.join(folderPath, `${fileName}_repository.dart`),
-            content: `abstract interface class ${className}Repository {}`,
+            path: path.join(folderPath, `${fileName}_repository_impl.dart`),
+            content: `
+                import '../../domain/repositories/${fileName}_repository.dart';
+
+                class ${className}RepositoryImpl implements ${className}Repository {
+                    const ${className}RepositoryImpl();
+
+                    Future<T> _run<T>(Function() function) async {
+                        try {
+                            return await function();
+                        } catch (e) {
+                            throw e;
+                        }
+                    }
+                }`,
         },
     ];
 

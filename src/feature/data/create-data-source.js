@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
-const toSnakeCase = require("../utils/to-snake-case");
-const toPascalCase = require("../utils/to-pascal-case");
+const toSnakeCase = require("@/utils/to-snake-case");
+const toPascalCase = require("@/utils/to-pascal-case");
 const { exec } = require("child_process");
 
 module.exports = (
@@ -39,7 +39,18 @@ module.exports = (
             content: `
                 import '${fileName}_data_source.dart';
 
-                class ${className}DataSourceImpl implements ${className}DataSource {}`,
+                class ${className}DataSourceImpl implements ${className}DataSource {
+
+                  const ${className}DataSourceImpl();
+
+                  Future<T> _run<T>(Function() function) async {
+                    try {
+                      return await function();
+                    } catch (e) {
+                      throw e;
+                    }
+                  }
+                }`,
         },
     ];
 

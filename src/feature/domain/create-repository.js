@@ -1,12 +1,12 @@
 const fs = require("fs");
 const path = require("path");
-const toSnakeCase = require("../utils/to-snake-case");
-const toPascalCase = require("../utils/to-pascal-case");
+const toSnakeCase = require("@/utils/to-snake-case");
+const toPascalCase = require("@/utils/to-pascal-case");
 const { exec } = require("child_process");
 
 module.exports = (
     featureName = "",
-    modelName = "",
+    repositoryName = "",
     basePath = process.cwd()
 ) => {
     const featureBasePath = path.join(
@@ -16,26 +16,22 @@ module.exports = (
         toSnakeCase(featureName)
     );
 
-    const folderPath = path.join(featureBasePath, "data", "models");
+    const folderPath = path.join(featureBasePath, "domain", "repositories");
     if (!fs.existsSync(folderPath))
         fs.mkdirSync(folderPath, { recursive: true });
 
-    modelName = modelName.length ? modelName : featureName;
-    const fileName = toSnakeCase(modelName + " model");
-    const className = toPascalCase(modelName + " model");
+    repositoryName = repositoryName.length ? repositoryName : featureName;
+    const fileName = toSnakeCase(repositoryName);
+    const className = toPascalCase(repositoryName);
 
-    const entityName = toSnakeCase(modelName);
-    const entityClass = toPascalCase(modelName);
-
-    console.log(`Creating ${className} inside ${toPascalCase(featureName)}`);
+    console.log(
+        `Creating ${className}Repository inside ${toPascalCase(featureName)}`
+    );
 
     const files = [
         {
-            path: path.join(folderPath, `${fileName}.dart`),
-            content: `
-                import '../../domain/entities/${entityName}.dart';
-
-                class ${className} extends ${entityClass} {}`,
+            path: path.join(folderPath, `${fileName}_repository.dart`),
+            content: `abstract interface class ${className}Repository {}`,
         },
     ];
 

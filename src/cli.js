@@ -1,15 +1,17 @@
 #!/usr/bin/env node
+require("module-alias/register");
+
 const { program } = require("commander");
-const formatContent = require("./utils/format-content");
-const createDataSource = require("./data/create-data-source");
-const createModel = require("./data/create-model");
-const createRepositoryImpl = require("./data/create-repository-impl");
-const createRepository = require("./domain/create-repository");
-const createEntity = require("./domain/create-entity");
-const createUseCase = require("./domain/create-use-case");
-const createPage = require("./presentation/create-page");
-const createWidget = require("./presentation/create-widget");
-const createBloc = require("./presentation/create-bloc");
+const formatContent = require("@/utils/format-content");
+const createDataSource = require("@/feature/data/create-data-source");
+const createModel = require("@/feature/data/create-model");
+const createRepositoryImpl = require("@/feature/data/create-repository-impl");
+const createRepository = require("@/feature/domain/create-repository");
+const createEntity = require("@/feature/domain/create-entity");
+const createUseCase = require("@/feature/domain/create-use-case");
+const createPage = require("@/feature/presentation/create-page");
+const createWidget = require("@/feature/presentation/create-widget");
+const createBloc = require("@/feature/presentation/create-bloc");
 
 program
     .version("1.0.1")

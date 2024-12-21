@@ -1,7 +1,7 @@
 const path = require("path");
 const { vol } = require("memfs");
-const toSnakeCase = require("../utils/to-snake-case");
-const toPascalCase = require("../utils/to-pascal-case");
+const toSnakeCase = require("@/utils/to-snake-case");
+const toPascalCase = require("@/utils/to-pascal-case");
 const createDataSource = require("./create-data-source");
 
 jest.mock("fs", () => require("memfs").fs);
@@ -58,7 +58,7 @@ describe("createDataSource", () => {
                 featureName + " Remote"
             )}DataSourceImpl implements ${toPascalCase(
                 featureName + " Remote"
-            )}DataSource {}`
+            )}DataSource {`
         );
     });
 
@@ -106,7 +106,7 @@ describe("createDataSource", () => {
                 featureName + " Local"
             )}DataSourceImpl implements ${toPascalCase(
                 featureName + " Local"
-            )}DataSource {}`
+            )}DataSource {`
         );
     });
 
@@ -156,7 +156,7 @@ describe("createDataSource", () => {
                 customDataSourceName + " Remote"
             )}DataSourceImpl implements ${toPascalCase(
                 customDataSourceName + " Remote"
-            )}DataSource {}`
+            )}DataSource {`
         );
     });
 });
