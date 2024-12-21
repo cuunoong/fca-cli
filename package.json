@@ -1,6 +1,6 @@
 {
     "name": "fca-cli",
-    "version": "1.0.10",
+    "version": "1.0.11",
     "main": "src/cli.js",
     "scripts": {
         "test": "jest"

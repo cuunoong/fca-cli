@@ -43,7 +43,7 @@ module.exports = (
 
                   const ${className}DataSourceImpl();
 
-                  Future<T> _run<T>(Function() function) async {
+                  Future<T> _run<T>(Future<T> Function() function) async {
                     try {
                       return await function();
                     } catch (e) {
