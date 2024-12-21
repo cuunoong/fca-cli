@@ -13,8 +13,7 @@
     "license": "ISC",
     "description": "",
     "dependencies": {
-        "commander": "^12.1.0",
-        "fca-cli": "./fca-cli-v1.0.9.tgz"
+        "commander": "^12.1.0"
     },
     "devDependencies": {
         "jest": "^29.7.0",
